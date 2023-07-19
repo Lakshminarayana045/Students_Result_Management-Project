@@ -1,0 +1,110 @@
+<html>
+<head>
+    <title>NTH></title>
+</head>
+{% include 'cdlines.html' %}
+<body>
+{% include 'home.html' %}
+{% if data %}
+<h2 class="text-center text-dark"><u>SSC Result...</u></h2>
+<h3 class="text-center">Name- {{data.firstname}} {{data.lastname}}</h3>
+<h3 class="text-center">Result-  {{re}}</h3>
+<h3 class="text-center">Grade-  {{g}}</h3>
+<div class="container">
+<table class="table table-bordered text-center">
+    <thead class="bg-success text-white">
+    <tr>
+        <th>Subject</th>
+        <th>Marks Obtained</th>
+        <th>Max Marks</th>
+        <th>Result</th>
+    </tr>
+    </thead>
+       <tbody class="text-white bg-info">
+    <tr>
+        {% if data.marathi >= 35 %}
+                <td>Marathi</td><td>{{data.marathi}}</td><td>100</td><td>Pass</td>
+        {% else %}
+                <td>Marathi</td><td>{{data.marathi}}</td><td>100</td><td>Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.hindi >= 35 %}
+                <td>Hindi</td><td>{{data.hindi}}</td><td>100</td><td>Pass</td>
+        {% else %}
+                <td>Marathi</td><td>{{data.hindi}}</td><td>100</td><td>Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.english >= 35 %}
+                <td>English</td><td>{{data.english}}</td><td>100</td><td>Pass</td>
+        {% else %}
+                <td>English</td><td>{{data.english}}</td><td>100</td><td>Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.math >= 35 %}
+                <td>Mathematics</td><td>{{data.math}}</td><td>100</td><td>Pass</td>
+        {% else %}
+                <td>Mathematics</td><td>{{data.math}}</td><td>100</td><td>Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.science >= 35 %}
+                <td>Science</td><td>{{data.science}}</td><td>100</td><td>Pass</td>
+        {% else %}
+                <td>Science</td><td>{{data.science}}</td><td>100</td><td>Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.socialsci >= 35 %}
+                <td>Social Science</td><td>{{data.socialsci}}</td><td>100</td><td>Pass</td>
+        {% else %}
+                <td>Social Science</td><td>{{data.socialsci}}</td><td>100</td><td>Fail</td>
+        {% endif %}
+    </tr>
+       <tr>
+           <td><b>Total</b></td><td><b>{{m}}</b></td><td><b>600</b></td><td><b>Percentage-{{p}}</b></td>
+       </tr>
+        </tbody>
+</table>
+    </div>
+{% else %}
+<h3>No data available</h3>
+{% endif %}
+<h3 class="text-center">markwise Grades</h3>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-2 col-md-7">
+            <table class="table table-bordered text-center">
+                <thead class="text-white bg-secondary">
+                 <tr>
+                     <th>Grade</th>
+                     <th>A</th>
+                     <th>B</th>
+                     <th>C</th>
+                     <th>D</th>
+                     <th>E</th>
+                 </tr>
+                </thead>
+                <tbody class="text-white bg-info">
+                <tr>
+                    <td>marks obtained</td>
+                    <td>504-600</td>
+                    <td>406-505</td>
+                    <td>308-407</td>
+                    <td>210-309</td>
+                    <td>209-below</td>
+                </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+
+<!--
+!-->

@@ -1,0 +1,114 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+{% include 'cdlines.html' %}
+
+
+{% if error %}
+{{ error }}
+
+<br/>
+<br/>
+{% endif %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="offset-md-3 col-md-6">
+<form method = "POST" action="{% url 'signup' %}" class="text-center  text-white bg-dark font-weight-bold" onsubmit="return validation()" >
+    <h1 class="text-center">Signup here!!!</h1>
+    {% include 'msg.html' %}
+
+    {% csrf_token %}
+    username:
+    <br/>
+    <input type="text" name="username" id="user"/><br/>
+<!--    <span id="username" class="text-danger"></span>-->
+    <br/>
+
+    EmailID:
+    <br/>
+    <input type="email" name="email" id="email" /><br/>
+    <span id="emailid" class="text-danger"></span>
+
+    <br/>
+
+
+    Password:
+    <br/>
+    <div class="password-field">
+  <!--  <input type="password" name="pass1" id="pass" />   -->
+        <input type="password"  name="password1"
+               pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+               title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"><br/>
+<!--    <span id="password" class="text-danger"></span>-->
+    <span><i id="toggler" class="far fa-eye"></i></span>
+    </div>
+
+    <br/>
+    confirm Password:
+    <br/>
+    <input type="password" name="password2" id="con" /><br/>
+    <span id="confirm" class="text-danger"></span>
+
+
+    <br/>
+
+    <input class ="btn btn-success mb-3" type="submit" value= "signup" />
+    <input class ="btn btn-danger mb-3" type="reset" value= "clear" />
+
+    <br/>
+
+
+
+</form>
+</div>
+</div>
+</div>
+<!--<script type="text/javascript">-->
+<!--    function validation(){-->
+<!--    var user=document.getElementById('user').value;-->
+<!--    var pass=document.getElementById('pass').value;-->
+<!--    var con=document.getElementById('con').value;-->
+<!--    var email=document.getElementById('email').value;-->
+
+
+
+
+<!--    if(user==''){-->
+<!--    document.getElementById('username').innerHTML='please fill the username'-->
+<!--    return false;}-->
+<!--    if(pass==''){-->
+<!--    document.getElementById('password').innerHTML='please fill the password'-->
+<!--    return false;}-->
+<!--    if(pass.length<=8){-->
+<!--    document.getElementById('password').innerHTML='password must be 8 character'-->
+<!--    return false;}-->
+<!--    if(con==''){-->
+<!--    document.getElementById('confirm').innerHTML='please fill the confirm password'-->
+<!--    return false;}-->
+<!--    if(email==''){-->
+<!--    document.getElementById('emailid').innerHTML='please fill the emilid'-->
+<!--    return false;}-->
+
+<!--    }-->
+<!--</script>-->
+<script type="text/javascript">
+    var password=document.getElementById('pass');
+    var toggler =document.getElementById('toggler');
+    showHidePassword = () => {
+    if (password.type == 'password') {
+    password.setAttribute('type','text');
+    toggler.classlist.remove('fa-eye-slash');
+    }else{
+    toggler.classlist.add('fa-eye-slash');
+    password.setAttribute('type','password');
+
+    }
+    };
+    toggler.addEventListener('click',showHidePassword);
+</script>
+{% endblock %}
+
+

@@ -1,0 +1,43 @@
+
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    form{
+    margin:30px;
+    padding:20;
+    border:10px black solid;
+    border-radius:20%;}
+
+</style>
+
+{% if error %}
+{{ error }}
+
+<br/>
+<br/>
+{% endif %}
+
+<div class="container">
+    <div class="row">
+        <div class="offset-md-4 col-md-4">
+<form method = "POST" action="{% url 'login' %}" class="text-center bg-light mt-5 ">
+    <h1 class="text-center">Login here</h1>
+    {% csrf_token %}
+    username:
+    <br/>
+    <input type="text" name="username" />
+    <br/>
+    Password:
+    <br/>
+    <input type="password" name="password" />
+    <br/>
+    <input class ="btn btn-success mt-4 mb-3" type="submit" value= "Login" />
+    <input class ="btn btn-danger mt-4 mb-3" type="reset" value= "clear" />
+    <br/>
+    <a href="{% url 'signup' %}"><u> create new account here</u></a>
+</form>
+</div>
+</div>
+</div>
+{% endblock %}

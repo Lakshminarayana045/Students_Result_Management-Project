@@ -1,0 +1,108 @@
+{% load static %}
+<html>
+<head>
+    <title>NTH></title>
+</head>
+{% include 'cdlines.html' %}
+<body>
+{% include 'home.html' %}
+
+{% if data %}
+<center>
+<h2 class="text center"><u>Degree Result..</u></h2>
+    </center>
+<h3 class="text-center">Name- {{data.firstname}} {{data.lastname}}</h3>
+<h3 class="text-center">Result-  {{re}}</h3>
+<h3 class="text-center">Grade-  {{g}}</h3>
+<div class="container">
+
+<table class="table table-bordered text-center">
+    <thead class="bg-secondary text-white">
+    <tr>
+        <th>Subject</th>
+        <th>Marks Obtained</th>
+        <th>Max Marks</th>
+        <th>Result</th>
+    </tr>
+    </thead>
+       <tbody class="text-white bg-info">
+    <tr>
+        {% if data.bcomunication >= 35 %}
+                <td>bcomunication</td><td>{{data.bcomunication}}</td><td>100</td><td>Pass</td>
+        {% else %}
+                <td>bcomunication</td><td>{{data.bcomunication}}</td><td>100</td><td>Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.pm >= 35 %}
+                <td>princilpe Management</td><td>{{data.pm}}</td><td>100</td><td>Pass</td>
+        {% else %}
+                <td>principle Management</td><td>{{data.pm}}</td><td>100</td><td>Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.dbms >= 35 %}
+                <td>dbms</td><td>{{data.dbms}}</td><td>100</td><td>Pass</td>
+        {% else %}
+                <td>dbms</td><td>{{data.dbms}}</td><td>100</td><td>Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.clanguage >= 35 %}
+                <td>clanguage</td><td>{{data.clanguage}}</td><td>100</td><td>Pass</td>
+        {% else %}
+                <td>clanguage</td><td>{{data.clanguage}}</td><td>100</td><td>Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+        {% if data.bstatistics >= 35 %}
+                <td>bstatistics</td><td>{{data.bstatistics}}</td><td>100</td><td>Pass</td>
+        {% else %}
+                <td>bstatistics</td><td>{{data.bstatistics}}</td><td>100</td><td>Fail</td>
+        {% endif %}
+    </tr>
+    <tr>
+
+        <td><b>Total</b></td><td><b>{{m}}</b></td><td><b>500</b></td><td><b> Percentage-{{p}}</b></td>
+
+       </tr>
+        </tbody>
+</table>
+    </div>
+{% else %}
+<h3>No data available</h3>
+{% endif %}
+<h3 class="text-center">Markwise Grades</h3>
+<div class="container">
+    <div class="row">
+        <div class="offset-md-2 col-md-7">
+            <table class="table table-bordered text-center">
+                <thead class="bg-secondary text-white">
+                 <tr>
+                     <th>Grade</th>
+                     <th>A</th>
+                     <th>B</th>
+                     <th>C</th>
+                     <th>D</th>
+                     <th>E</th>
+                 </tr>
+                </thead>
+                <tbody class="text-white bg-info">
+                <tr>
+                    <td>marks obtained</td>
+                    <td>418-500</td>
+                    <td>337-419</td>
+                    <td>256-338</td>
+                    <td>175-257</td>
+                    <td>174-below</td>
+                </tr>
+
+                </tbody>
+            </table>
+
+</body>
+</html>
+
+
+<!--
+!-->
